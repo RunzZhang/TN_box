@@ -98,8 +98,8 @@ void DMXRunAction::BeginOfRunAction(const G4Run* aRun)
 {
   
   // Logan ROOT
-  auto aMan = G4AnalysisManager::Instance();
-  aMan->OpenFile( "Data_ryan.root" );
+  /*auto aMan = G4AnalysisManager::Instance();
+  aMan->OpenFile( "Data_ryan.root" );*/
   
   //Master mode or sequential
   if (IsMaster())    
@@ -126,7 +126,32 @@ void DMXRunAction::EndOfRunAction(const G4Run*)
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
 void DMXRunAction::Book()
-{  
+{
+// Get/create analysis manager
+  G4AnalysisManager* man = G4AnalysisManager::Instance();
+
+  man->SetVerboseLevel(2);
+  man->SetDefaultFileType("root");
+
+  // Open an output file
+  man->OpenFile(savehistFile);
+  man->SetFirstHistoId(1);
+  man->SetFirstNtupleId(1);
+
+   man->CreateNtuple("tree", "Scintillation Info");
+  man->CreateNtupleDColumn("Event");D"););;
+  man->CreateNtupleSColumn("name");
+  man->CreateNtupleIColumn("Parent ID");
+  man->CreateNtupleIColumn("Track ID");
+  man->CreateNtupleIColumn("Step ID");
+  man->CreateNtupleDColumn("X/mm");
+  man->CreateNtupleDColumn("Y/mm");
+  man->CreateNtupleDColumn("Z/mm");
+  man->CreateNtupleDColumn("Kinetic/keV");
+  man->CreateNtupleDColumn("Recoiled/keV");
+  man->CreateNtupleSColumn("Volume");
+  man->CreateNtupleSColumn("Process");
+
   /*// Get/create analysis manager
   G4AnalysisManager* man = G4AnalysisManager::Instance();
   man->SetDefaultFileType("root");

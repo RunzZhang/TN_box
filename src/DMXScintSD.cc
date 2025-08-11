@@ -165,7 +165,7 @@ G4bool DMXScintSD::ProcessHits(G4Step* aStep, G4TouchableHistory*)
 
   HitID = scintillatorCollection->insert(newHit);
 
-  if(posx == 0 && posy == 0 && posz == 0 && n>0){
+  /*if(posx == 0 && posy == 0 && posz == 0 && n>0){
   eki=ek;
   MomentumDiri.setX(momx);
   MomentumDiri.setY(momy); 
@@ -196,7 +196,7 @@ G4bool DMXScintSD::ProcessHits(G4Step* aStep, G4TouchableHistory*)
   MomentumDire.setX(0);
   MomentumDire.setY(0); 
   MomentumDire.setZ(0);
-  }
+  }*/
 
   /*if(n1!=n){
   HasHit = 0;
@@ -234,7 +234,7 @@ void DMXScintSD::EndOfEvent(G4HCofThisEvent* HCE)
 
 
   //ROOT
-  auto aMan = G4AnalysisManager::Instance();
+  /*auto aMan = G4AnalysisManager::Instance();
   aMan->FillNtupleDColumn(0,HasHit);
   aMan->FillNtupleDColumn(1,Position.getX());
   aMan->FillNtupleDColumn(2,Position.getY());
@@ -248,7 +248,7 @@ void DMXScintSD::EndOfEvent(G4HCofThisEvent* HCE)
   aMan->FillNtupleDColumn(10,MomentumDiri.getX());
   aMan->FillNtupleDColumn(11,MomentumDiri.getY());
   aMan->FillNtupleDColumn(12,MomentumDiri.getZ());
-  aMan->AddNtupleRow();
+  aMan->AddNtupleRow();*/
 
 
   /*if(n==0){
@@ -271,7 +271,7 @@ void DMXScintSD::EndOfEvent(G4HCofThisEvent* HCE)
     scintillatorCollection->PrintAllHits();
 
 
-  HasHit = 0;
+  /*HasHit = 0;
   HasHitAr = 0;
   eke = 0;
   Position.setX(0);
@@ -282,7 +282,7 @@ void DMXScintSD::EndOfEvent(G4HCofThisEvent* HCE)
   MomentumDire.setZ(0);
   MomentumDiri.setX(0);
   MomentumDiri.setY(0); 
-  MomentumDiri.setZ(0);
+  MomentumDiri.setZ(0);*/
 
 }
 
