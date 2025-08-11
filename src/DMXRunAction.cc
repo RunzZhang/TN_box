@@ -139,7 +139,7 @@ void DMXRunAction::Book()
   man->SetFirstNtupleId(1);
 
    man->CreateNtuple("tree", "Scintillation Info");
-  man->CreateNtupleDColumn("Event");D"););;
+  man->CreateNtupleDColumn("Event");
   man->CreateNtupleSColumn("name");
   man->CreateNtupleIColumn("Parent ID");
   man->CreateNtupleIColumn("Track ID");
