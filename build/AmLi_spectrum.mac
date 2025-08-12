@@ -1,0 +1,81 @@
+###############################################################################
+#                                                                             #
+# neutron.mac                                                                 #
+# 1 neutron fired in the room                                                 #
+#                                                                             #
+###############################################################################
+# contains the angle distribution and written in gps
+# output log-file name
+#/run/filename n_phantom_100000.log
+#
+# verbosities
+/control/verbose 0
+/run/verbose 1
+/tracking/verbose 0
+/hits/verbose 1
+#test
+# draw flags
+#/dmx/draw/drawColours custom
+#/dmx/draw/gammaColour green
+##/dmx/draw/drawTracks noscint
+#/dmx/draw/drawTracks all
+#/dmx/draw/drawHits 0
+#
+# file output
+#/dmx/savePmt  0
+#/dmx/saveHits 1
+#
+# kill gammas in lab wall
+#/dmx/KillGammasInConcrete 0
+#
+# radioactive decay module
+#/grdm/analogueMC 1
+#/grdm/verbose 0
+#/grdm/allVolumes
+#
+#
+# using GPS for ambe_spectrum:
+#/gps/pos/type Surface
+#/gps/pos/shape Sphere
+#/gps/pos/radius 1.0 cm
+#/gps/pos/centre 0. 132.0 -302.65 mm
+/gps/pos/type Point
+/gps/pos/centre 0 0 0 cm
+/gps/ang/surfnorm 1
+/gps/ang/type iso
+/gps/ang/mintheta 0 deg
+/gps/ang/maxtheta 180 deg
+/gps/ang/minphi 0 deg
+/gps/ang/maxphi 360 deg
+#/gps/ang/mintheta 49.9 deg
+#/gps/ang/maxtheta 130.1 deg
+#/gps/ang/minphi 49.9 deg
+#/gps/ang/maxphi 130.1 deg
+#/gps/angtype iso
+#/gps/surfnorm 1
+#/gps/mintheta 0.
+#/gps/maxtheta 0.30
+#/gps/minphi 0.
+#/gps/maxphi 6.283185
+#
+#
+/gps/particle neutron
+/gps/ene/type Arb
+#/gps/histname arb
+#
+
+#
+# estimated neutron spectrum from Jaime's paper:
+# - first bin is in MeV:
+/gps/hist/type arb
+/gps/hist/file AmLiMeasuredPNNL.txt
+#AmLiMeasuredPNNL.txt
+#AmLiSimulated.txt
+/gps/hist/inter Lin
+#/random/setDirectoryName ./seeds
+#/random/setSavingFlag
+#/dmx/hitsfile ambe_spectrum.out
+#/dmx/histogramfile ambe_spectrum.his
+
+/run/beamOn 1000000
+

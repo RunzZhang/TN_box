@@ -1,0 +1,60 @@
+
+/control/verbose 0
+/run/verbose 1
+/tracking/verbose 1
+/hits/verbose 1
+
+#/gps/pos/type Point
+#/gps/pos/centre -30.55 0 50 cm
+#/gps/pos/rot1 0 1 0
+#/gps/pos/rot2 0 0 1
+
+
+/gps/pos/type Plane
+/gps/pos/shape Square
+/gps/pos/centre 30.55 0 45 cm
+#/gps/pos/centre 0 0 0 cm
+/gps/pos/halfx 2.5 cm
+/gps/pos/halfy 2.5 cm
+/gps/pos/rot1 0 -1 0
+/gps/pos/rot2 0 0 1
+
+
+#/gps/pos/centre 0 0 -72.51 cm
+#/gps/ang/surfnorm 1
+#/gps/ang/type iso
+#/gps/ang/mintheta 0 deg
+#/gps/ang/maxtheta 180 deg
+#/gps/ang/minphi 0 deg
+#/gps/ang/maxphi 360 deg
+
+/gps/particle geantino
+
+/gps/ang/type user
+#/gps/ang/rot1 0 1 0
+#/gps/ang/rot2 0 0 1
+#/gps/ang/user_coor true
+/gps/hist/type theta
+#/gps/hist/file Sap7.5Poly3Pad10Theta.txt
+#/control/execute 2.4MeVSap10Poly10Pad5Theta.dat
+#/control/execute CF252Sap7.5Poly3Pad10Theta.dat
+/control/execute Sap7.5Poly3Pad10Theta.dat
+
+#/gps/hist/type phi
+#/gps/hist/point 0. 1.
+#/gps/hist/point 6.28318530718 1.
+
+/gps/ene/type User
+#/gps/ene/emspec 0
+/gps/hist/type energy
+#/gps/hist/file Sap7.5Poly3Pad10KE.txt
+#/control/execute 2.4MeVSap10Poly10Pad5KE.dat
+#/control/execute CF252Sap7.5Poly3Pad10KE.dat
+/control/execute Sap7.5Poly3Pad10KE.dat
+#/gps/hist/point 0. 1.
+#/gps/hist/point 6.28318530718 1.
+#Sap7.5Poly3Pad10KE.txt
+#/gps/hist/inter Lin
+
+/run/beamOn 100
+#9794

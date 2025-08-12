@@ -1,0 +1,40 @@
+
+/control/verbose 0
+/run/verbose 1
+/tracking/verbose 0
+/hits/verbose 1
+
+/gps/pos/type Point
+/gps/pos/centre 0 0 0 cm
+#/gps/ang/surfnorm 1
+#/gps/ang/type iso
+#/gps/ang/mintheta 0 deg
+#/gps/ang/maxtheta 180 deg
+#/gps/ang/minphi 0 deg
+#/gps/ang/maxphi 360 deg
+
+/gps/particle neutron
+
+/gps/ang/type user
+/gps/hist/type theta
+#/gps/hist/file Sap7.5Poly3Pad10Theta.txt
+/control/execute Sap7.5Poly3Pad10Theta.dat
+#/control/execute CF252Sap7.5Poly6Pad10Theta.dat
+
+#/gps/hist/type phi
+#/gps/hist/point 0. 1.
+#/gps/hist/point 6.28318530718 1.
+
+/gps/ene/type User
+#/gps/ene/emspec 0
+/gps/hist/type energy
+#/gps/hist/file Sap7.5Poly3Pad10KE.txt
+/control/execute Sap7.5Poly3Pad10KE.dat
+#/control/execute CF252Sap7.5Poly6Pad10KE.dat
+#/gps/hist/point 0. 1.
+#/gps/hist/point 6.28318530718 1.
+#Sap7.5Poly3Pad10KE.txt
+#/gps/hist/inter Lin
+
+/run/beamOn 100000
+#9794

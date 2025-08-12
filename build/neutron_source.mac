@@ -1,0 +1,71 @@
+###############################################################################
+#                                                                             #
+# neutron.mac                                                                 #
+# 1 neutron fired in the room                                                 #
+#                                                                             #
+###############################################################################
+
+# verbosities
+/control/verbose 1
+/run/verbose 1
+/tracking/verbose 1
+/hits/verbose 1
+#turn off the scintillation
+
+#/process/optical/scintillation/setByParticleType False
+#/process/optical/scintillation/setStackPhotons 1
+
+#/process/list all
+#/process/inactivate Scintillation e-
+#/run/setCutForAGivenParticle e- 1 mm
+
+
+# draw flags
+##/dmx/draw/drawTracks noscint
+#
+# file output
+#
+# kill gammas in lab wall
+/dmx/KillGammasInConcrete 0
+
+# using GPS for ambe_spectrum:
+
+#/gps/pos/type Plane
+#/gps/pos/shape Square
+#/gps/pos/halfx 0.15 m
+#/gps/pos/halfy 0.15 m
+
+/gps/pos/centre 0 0 -1 m 
+
+/gps/direction 0 0 1
+
+#
+#
+#/gps/ene/type Bbody
+#/gps/ene/temp 297
+#/gps/ene/min 0.0001 eV
+#/gps/ene/max 10 eV
+
+#/gps/ene/type Lin
+#/gps/ene/min 0.0001 eV
+#/gps/ene/max 0.001 eV
+#/gps/ene/intercept 1
+#/gps/ene/gradient 0
+
+
+/gps/ene/type Mono
+
+/gps/ene/mono 2.4 MeV
+
+/gps/particle geantino
+
+
+/random/setDirectoryName ./seeds
+/random/setSavingFlag
+
+/random/setSeeds 5338 17544
+
+#/run/beamOn 10000000
+#/run/beamOn 100000
+/run/beamOn 5
+
