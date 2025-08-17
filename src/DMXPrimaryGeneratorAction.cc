@@ -181,18 +181,20 @@ void DMXPrimaryGeneratorAction::BaccGeneratorCfFission()
         gammaPDF[i] = gammaInfo[i * 2 + 1];
         totalArea += gammaPDF[i];
     }
-
+      G4cout << "Initializing CfFission2..." << G4endl;
     for (G4int i = 0; i < numPoints; i++)
     {
         gammaPDF[i] /= totalArea;
     }
 
     gammaCDF[0] = 0.;
+    G4cout << "Initializing CfFission3..." << G4endl;
     for (G4int i = 1; i < numPoints; i++)
     {
         gammaCDF[i] = gammaCDF[i - 1] + gammaPDF[i - 1];
     }
     gammaCDF[numPoints - 1] = 1.;
+    G4cout << "Initializing CfFission4..." << G4endl;
 
     delete[] gammaPDF;
 }
