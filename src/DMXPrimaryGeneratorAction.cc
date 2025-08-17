@@ -170,6 +170,7 @@ void DMXPrimaryGeneratorAction::BaccGeneratorCfFission()
     };
 
     G4int numPoints = sizeof(gammaInfo) / sizeof(G4double) / 2;
+    fCDFSize = numPoints;
     G4double* gammaPDF, totalArea = 0.;
     gammaPDF = new G4double[numPoints];
     for (G4int i = 0; i < numPoints; i++)
@@ -268,6 +269,7 @@ void DMXPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
       particleGun->GetCurrentSource()->GetEneDist()->SetMonoEnergy(
           singleEnergy);
       particleGun->GeneratePrimaryVertex(anEvent);
+
       //baccManager->AddPrimaryParticle(GetParticleInfo(particleGun));
 
       runningTotal += singleEnergy;

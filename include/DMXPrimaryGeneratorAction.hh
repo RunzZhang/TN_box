@@ -86,10 +86,9 @@ private:
     G4ParticleDefinition* gammaDef;
     G4ParticleDefinition* neutronDef;
 
-    static const G4int kMaxGammaPoints = 200;  // whatever your table size is
-    G4double gammaEnergy[kMaxGammaPoints];
-    G4double gammaCDF[kMaxGammaPoints];
-    G4int    fCDFSize;
+    std::vector<G4double> gammaEnergy;
+    std::vector<G4double> gammaCDF;
+    G4int fCDFSize;
 
     G4double averageGammaEnergy;
 
