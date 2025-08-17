@@ -79,6 +79,19 @@ class DMXPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction {
   const long* GetEventSeeds() const       {return seeds;};
   G4double GetEnergyPrimary() const  {return energy_pri;};
 
+private:
+    G4ParticleDefinition* gammaDef;
+    G4ParticleDefinition* neutronDef;
+
+    static const G4int kMaxGammaPoints = 200;  // whatever your table size is
+    G4double gammaEnergy[kMaxGammaPoints];
+    G4double gammaCDF[kMaxGammaPoints];
+    G4int    fCDFSize;
+
+    G4double averageGammaEnergy;
+
+   private:
+    void BaccGeneratorCfFission();  // setup function for fission gammas
 
 };
 

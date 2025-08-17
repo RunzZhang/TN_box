@@ -65,13 +65,13 @@
 #include "G4Gamma.hh"
 #include "G4Neutron.hh"
 #include "G4Poisson.hh"
-G4int A = 252
-G4int Z = 98
-G4double multiplicity  = 3.75
+G4int A = 252;
+G4int Z = 98;
+G4double multiplicity  = 3.75;
 //------++++++------++++++------++++++------++++++------++++++------++++++------
 //					BaccGeneratorCfFission()
 //------++++++------++++++------++++++------++++++------++++++------++++++------
-DMXPrimaryGeneratorAction::BaccGeneratorCfFission()
+void DMXPrimaryGeneratorAction::BaccGeneratorCfFission()
 {
     name = "CfFission";
     activityMultiplier = 1;
@@ -206,6 +206,8 @@ DMXPrimaryGeneratorAction::DMXPrimaryGeneratorAction() {
   //  seeds=NULL;
   seeds[0] =-1;
   seeds[1] =-1;
+
+  BaccGeneratorCfFission();
 
 }
 
