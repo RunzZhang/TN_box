@@ -170,6 +170,8 @@ void DMXPrimaryGeneratorAction::BaccGeneratorCfFission()
     };
 
     G4int numPoints = sizeof(gammaInfo) / sizeof(G4double) / 2;
+    G4cout << "Initializing CfFission..." << G4endl;
+    G4cout << "gammaDef pointer: " << gammaDef << G4endl;
     fCDFSize = numPoints;
     G4double* gammaPDF, totalArea = 0.;
     gammaPDF = new G4double[numPoints];
