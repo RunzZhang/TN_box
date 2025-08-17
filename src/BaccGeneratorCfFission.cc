@@ -67,8 +67,8 @@ Change log
 //
 //	Bacc includes
 //
-#include "BaccGeneratorCfFission.hh"
-#include "BaccManager.hh"
+//#include "BaccGeneratorCfFission.hh"
+//#include "BaccManager.hh"
 //------++++++------++++++------++++++------++++++------++++++------++++++------
 //					BaccGeneratorCfFission()
 //------++++++------++++++------++++++------++++++------++++++------++++++------
