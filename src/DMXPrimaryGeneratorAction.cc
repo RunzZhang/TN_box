@@ -233,7 +233,7 @@ void DMXPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
 
   //energy_pri = particleGun->GetParticleEnergy();
 
-  Fill ntuple #1
+  //Fill ntuple #1
   /*G4AnalysisManager* man = G4AnalysisManager::Instance();
   man->FillNtupleDColumn(1,0,energy_pri);
   man->AddNtupleRow(1);*/
