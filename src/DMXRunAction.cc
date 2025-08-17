@@ -154,6 +154,7 @@ void DMXRunAction::Book()
   man->CreateNtupleDColumn("Recoiled/keV");
   man->CreateNtupleSColumn("Volume");
   man->CreateNtupleSColumn("Process");
+  man->FinishNtuple();
 
   /*// Get/create analysis manager
   G4AnalysisManager* man = G4AnalysisManager::Instance();
