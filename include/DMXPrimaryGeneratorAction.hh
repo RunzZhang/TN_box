@@ -44,6 +44,7 @@
 
 #include "G4VUserPrimaryGeneratorAction.hh"
 #include "globals.hh"
+#include "G4ParticleDefinition.hh"
 
 #ifdef DMXENV_GPS_USE
 class G4GeneralParticleSource;
