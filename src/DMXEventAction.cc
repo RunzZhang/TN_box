@@ -137,6 +137,10 @@ void DMXEventAction::BeginOfEventAction(const G4Event* evt)
   energy_pri = genAction->GetEnergyPrimary();
 
   event_id = evt->GetEventID();
+
+  //edited by Ryan
+  G4AnalysisManager* man = G4AnalysisManager::Instance();
+  man->FillNtupleDColumn(0,event_id);
  
   // print this information event by event (modulo n)  	
   if (event_id%printModulo == 0)

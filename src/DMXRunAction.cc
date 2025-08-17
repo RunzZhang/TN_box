@@ -147,6 +147,9 @@ void DMXRunAction::Book()
   man->CreateNtupleDColumn("X/mm");
   man->CreateNtupleDColumn("Y/mm");
   man->CreateNtupleDColumn("Z/mm");
+  man->CreateNtupleDColumn("px/MeV");
+  man->CreateNtupleDColumn("py/MeV");
+  man->CreateNtupleDColumn("pz/MeV");
   man->CreateNtupleDColumn("Kinetic/keV");
   man->CreateNtupleDColumn("Recoiled/keV");
   man->CreateNtupleSColumn("Volume");

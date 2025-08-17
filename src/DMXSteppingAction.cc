@@ -61,6 +61,7 @@
 #include "G4VisAttributes.hh"
 #include "globals.hh"
 #include "G4ios.hh"
+#include "G4VProcess.hh"
 
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
@@ -93,8 +94,8 @@ DMXSteppingAction::~DMXSteppingAction()
 void DMXSteppingAction::UserSteppingAction(const G4Step* fStep)
 {
  
-  if(fStep->GetTrack()->GetDefinition() != G4Neutron::NeutronDefinition()){
-    fStep->GetTrack()->SetTrackStatus(fKillTrackAndSecondaries);}
+  //if(fStep->GetTrack()->GetDefinition() != G4Neutron::NeutronDefinition()){
+  //  fStep->GetTrack()->SetTrackStatus(fKillTrackAndSecondaries);}
   
   if (!evtAction)
     evtAction = 
@@ -127,6 +128,73 @@ void DMXSteppingAction::UserSteppingAction(const G4Step* fStep)
       else
 	man->FillH1(12,partEnergy);*/
     }
+
+   G4double partEnergy= fStep->GetPostStepPoint()->GetKineticEnergy();
+  G4ParticleDefinition* particleType = fStep->GetTrack()->GetDefinition();
+  G4String particleName = particleType->GetParticleName();
+  //information collected by Ryan, written to dmx.root file defined in RunAction.cc
+
+  G4double edep = fStep->GetTotalEnergyDeposit();
+  G4double ek = fStep->GetPostStepPoint()->GetKineticEnergy();
+  G4double posx = fStep->GetPreStepPoint()->GetPosition().x();
+  G4double posy = fStep->GetPreStepPoint()->GetPosition().y();
+  G4double posz = fStep->GetPreStepPoint()->GetPosition().z();
+  G4double momx = fStep->GetPreStepPoint()->GetMomentum().x();
+  G4double momy = fStep->GetPreStepPoint()->GetMomentum().y();
+  G4double momz = fStep->GetPreStepPoint()->GetMomentum().z();
+  G4int trackid = fStep->GetTrack()-> GetTrackID();
+  G4int parentid = fStep->GetTrack()-> GetParentID();
+  G4VPhysicalVolume* pv = fStep->GetPreStepPoint()->GetPhysicalVolume();
+  G4String volume = pv->GetName();
+
+  char Ar36 [10]="Ar36";
+  char Ar38 [10]="Ar38";
+  char Ar40 [10]="Ar40";
+  char Ar37 [10]="Ar37";
+  char Ar39 [10]="Ar39";
+  char Ar41 [10]="Ar41";
+
+
+ G4AnalysisManager* man = G4AnalysisManager::Instance();
+
+ /*if((strcmp(particleName,Ar36) == 0) || (strcmp(particleName,Ar38) == 0) || (strcmp(particleName,Ar40) == 0) || (strcmp(particleName,Ar37) == 0) || (strcmp(particleName,Ar39) == 0) || (strcmp(particleName,Ar41) == 0) )
+   {
+     man->FillNtupleSColumn(1,particleName);
+  man->FillNtupleIColumn(2,parentid);
+  man->FillNtupleIColumn(3,trackid);
+  man->FillNtupleIColumn(4,StepNo);
+  man->FillNtupleDColumn(5,posx);
+  man->FillNtupleDColumn(6,posy);
+  man->FillNtupleDColumn(7,posz);
+  man->FillNtupleDColumn(8, ek);
+  man->FillNtupleDColumn(9,edep);
+  man->FillNtupleSColumn(10,volume);
+
+     if (fStep->GetPostStepPoint()->GetProcessDefinedStep())
+    {const G4VProcess* process = fStep->GetPostStepPoint()->GetProcessDefinedStep();
+      G4String processn = process->GetProcessName();
+      man->FillNtupleSColumn(11,processn);}
+  man->AddNtupleRow();}*/
+      if (volume == "logicAr")
+        {
+          man->FillNtupleSColumn(1,particleName);
+  man->FillNtupleIColumn(2,parentid);
+  man->FillNtupleIColumn(3,trackid);
+  man->FillNtupleIColumn(4,StepNo);
+  man->FillNtupleDColumn(5,posx);
+  man->FillNtupleDColumn(6,posy);
+  man->FillNtupleDColumn(7,posz);
+  man->FillNtupleDColumn(8,momx);
+  man->FillNtupleDColumn(9,momy);
+  man->FillNtupleDColumn(10,momz);
+  man->FillNtupleDColumn(11, ek);
+  man->FillNtupleDColumn(12,edep);
+  man->FillNtupleSColumn(13,volume);
+   if (fStep->GetPostStepPoint()->GetProcessDefinedStep())
+    {const G4VProcess* process = fStep->GetPostStepPoint()->GetProcessDefinedStep();
+      G4String processn = process->GetProcessName();
+      man->FillNtupleSColumn(14,processn);}
+  man->AddNtupleRow();}
 
 
   // check what is to be drawn from EventAction/EventActionMessenger
