@@ -175,8 +175,8 @@ void DMXSteppingAction::UserSteppingAction(const G4Step* fStep)
       G4String processn = process->GetProcessName();
       man->FillNtupleSColumn(11,processn);}
   man->AddNtupleRow();}*/
-      if (volume == "logicAr")
-        {
+      //if (volume == "logicAr")
+        //{
           man->FillNtupleSColumn(1,particleName);
   man->FillNtupleIColumn(2,parentid);
   man->FillNtupleIColumn(3,trackid);
@@ -194,7 +194,8 @@ void DMXSteppingAction::UserSteppingAction(const G4Step* fStep)
     {const G4VProcess* process = fStep->GetPostStepPoint()->GetProcessDefinedStep();
       G4String processn = process->GetProcessName();
       man->FillNtupleSColumn(14,processn);}
-  man->AddNtupleRow();}
+  man->AddNtupleRow();
+  //}
 
 
   // check what is to be drawn from EventAction/EventActionMessenger
