@@ -229,9 +229,9 @@ void DMXPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
   seeds[0] = *G4Random::getTheSeeds();
   seeds[1] = *(G4Random::getTheSeeds()+1);
 
-  //particleGun->GeneratePrimaryVertex(anEvent);
+  particleGun->GeneratePrimaryVertex(anEvent);
 
-  //energy_pri = particleGun->GetParticleEnergy();
+  energy_pri = particleGun->GetParticleEnergy();
 
   //Fill ntuple #1
   /*G4AnalysisManager* man = G4AnalysisManager::Instance();
