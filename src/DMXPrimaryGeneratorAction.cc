@@ -210,7 +210,7 @@ DMXPrimaryGeneratorAction::DMXPrimaryGeneratorAction() {
   seeds[0] =-1;
   seeds[1] =-1;
 
-  //BaccGeneratorCfFission();
+  BaccGeneratorCfFission();
 
 }
 
