@@ -93,6 +93,11 @@ private:
 
    private:
     void BaccGeneratorCfFission();  // setup function for fission gammas
+   private:
+    std::string name;
+    G4int activityMultiplier;
+    G4double GetGammaEnergy(G4double limit);
+    G4ThreeVector GetRandomDirection();
 
 };
 

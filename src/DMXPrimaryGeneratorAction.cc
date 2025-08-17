@@ -319,4 +319,16 @@ G4double DMXPrimaryGeneratorAction::GetGammaEnergy(G4double limit)
     return (energy);
 }
 
-
+//------++++++------++++++------++++++------++++++------++++++------++++++------
+//					GetGammaEnergy()
+//------++++++------++++++------++++++------++++++------++++++------++++++------
+G4ThreeVector DMXPrimaryGeneratorAction::GetRandomDirection() {
+    // isotropic direction
+    G4double cosTheta = 2.0*G4UniformRand() - 1.0; // -1 to 1
+    G4double sinTheta = std::sqrt(1. - cosTheta*cosTheta);
+    G4double phi      = 2.0 * CLHEP::pi * G4UniformRand();
+    G4double x = sinTheta * std::cos(phi);
+    G4double y = sinTheta * std::sin(phi);
+    G4double z = cosTheta;
+    return G4ThreeVector(x, y, z);
+}
