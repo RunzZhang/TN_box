@@ -80,7 +80,7 @@ DMXRunAction::DMXRunAction()
  */
   savehitsFile = "hits.out";
   savepmtFile  = "pmt.out";
-  savehistFile = "/data/runzezhang/result/TN_box/dmx_Cfgamma.root";
+  savehistFile = "/data/runzezhang/result/TN_box/dmx_Cfneutron_1E6.root";
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....

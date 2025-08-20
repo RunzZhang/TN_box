@@ -94,7 +94,10 @@ DMXSteppingAction::~DMXSteppingAction()
 void DMXSteppingAction::UserSteppingAction(const G4Step* fStep)
 {
  
-  if(fStep->GetTrack()->GetDefinition() != G4Gamma::GammaDefinition()){
+  //if(fStep->GetTrack()->GetDefinition() != G4Gamma::GammaDefinition()){
+    //fStep->GetTrack()->SetTrackStatus(fKillTrackAndSecondaries);}
+
+    if(fStep->GetTrack()->GetDefinition() != G4Neutron::NeutronDefinition()){
     fStep->GetTrack()->SetTrackStatus(fKillTrackAndSecondaries);}
   
   if (!evtAction)
@@ -115,6 +118,8 @@ void DMXSteppingAction::UserSteppingAction(const G4Step* fStep)
     { 
       G4double partEnergy = fStep->GetPreStepPoint()->GetKineticEnergy();
       G4ParticleDefinition* particleType = fStep->GetTrack()->GetDefinition();
+
+
      
       /*G4AnalysisManager* man = G4AnalysisManager::Instance();
       if (particleType == G4Gamma::Definition())
