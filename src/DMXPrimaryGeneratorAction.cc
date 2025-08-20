@@ -209,7 +209,7 @@ DMXPrimaryGeneratorAction::DMXPrimaryGeneratorAction() {
   seeds[0] =-1;
   seeds[1] =-1;
 
-  BaccGeneratorCfFission();
+  //BaccGeneratorCfFission();
 
 }
 
@@ -230,15 +230,15 @@ void DMXPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
   seeds[0] = *G4Random::getTheSeeds();
   seeds[1] = *(G4Random::getTheSeeds()+1);
 
-  //particleGun->GeneratePrimaryVertex(anEvent);
+  particleGun->GeneratePrimaryVertex(anEvent);
 
-  //energy_pri = particleGun->GetParticleEnergy();
+  energy_pri = particleGun->GetParticleEnergy();
 
   //Fill ntuple #1
   /*G4AnalysisManager* man = G4AnalysisManager::Instance();
   man->FillNtupleDColumn(1,0,energy_pri);
   man->AddNtupleRow(1);*/
-
+/*
   //	Then create the gammas
   particleGun->SetParticleDefinition(gammaDef);
 
@@ -280,7 +280,7 @@ void DMXPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
       {
           break;
       }
-  }
+  }*/
 }
 
 
