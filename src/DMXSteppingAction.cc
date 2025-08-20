@@ -140,7 +140,7 @@ void DMXSteppingAction::UserSteppingAction(const G4Step* fStep)
   //information collected by Ryan, written to dmx.root file defined in RunAction.cc
 
   G4double edep = fStep->GetTotalEnergyDeposit();
-  G4double ek = fStep->GetPostStepPoint()->GetKineticEnergy();
+  G4double ek = fStep->GetPreStepPoint()->GetKineticEnergy();
   G4double posx = fStep->GetPreStepPoint()->GetPosition().x();
   G4double posy = fStep->GetPreStepPoint()->GetPosition().y();
   G4double posz = fStep->GetPreStepPoint()->GetPosition().z();
