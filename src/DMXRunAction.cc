@@ -123,7 +123,7 @@ void DMXRunAction::EndOfRunAction(const G4Run*)
   /*auto aMan = G4AnalysisManager::Instance();
   aMan->Write();
   aMan->CloseFile();*/
-    auto man = G4AnalysisManager::Instance()
+    auto man = G4AnalysisManager::Instance();
   man->Write();
   man->CloseFile();
 
