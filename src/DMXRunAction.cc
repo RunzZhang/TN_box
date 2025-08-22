@@ -103,7 +103,7 @@ DMXRunAction::DMXRunAction()
   man->FinishNtuple();
   savehitsFile = "hits.out";
   savepmtFile  = "pmt.out";
-  auto man = G4AnalysisManager::Instance();
+  //auto man = G4AnalysisManager::Instance();
   man->SetFirstHistoId(1);
   man->SetFirstNtupleId(1);
 
