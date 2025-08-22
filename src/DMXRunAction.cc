@@ -78,12 +78,35 @@ DMXRunAction::DMXRunAction()
   aMan->CreateNtupleDColumn("pzi"); //12
   aMan->FinishNtuple();  
  */
+
+  G4AnalysisManager* man = G4AnalysisManager::Instance();
+
+  man->SetVerboseLevel(2);
+  man->SetDefaultFileType("root");
+
+   man->CreateNtuple("tree", "Scintillation Info");
+  man->CreateNtupleDColumn("Event");
+  man->CreateNtupleSColumn("name");
+  man->CreateNtupleIColumn("Parent ID");
+  man->CreateNtupleIColumn("Track ID");
+  man->CreateNtupleIColumn("Step ID");
+  man->CreateNtupleDColumn("X/mm");
+  man->CreateNtupleDColumn("Y/mm");
+  man->CreateNtupleDColumn("Z/mm");
+  man->CreateNtupleDColumn("px/MeV");
+  man->CreateNtupleDColumn("py/MeV");
+  man->CreateNtupleDColumn("pz/MeV");
+  man->CreateNtupleDColumn("Kinetic/keV");
+  man->CreateNtupleDColumn("Recoiled/keV");
+  man->CreateNtupleSColumn("Volume");
+  man->CreateNtupleSColumn("Process");
+  man->FinishNtuple();
   savehitsFile = "hits.out";
   savepmtFile  = "pmt.out";
   auto man = G4AnalysisManager::Instance();
   man->SetFirstHistoId(1);
   man->SetFirstNtupleId(1);
-  savehistFile = "/data/runzezhang/result/TN_box/dmx_Cfneutron_Ncry_1E6.root";
+
 
 }
 
@@ -107,9 +130,11 @@ void DMXRunAction::BeginOfRunAction(const G4Run* aRun)
 
 
   //savehistFile = "/data/runzezhang/result/TN_box/dmx_Cfneutron_Ncry_1E6.root";
-  //G4int runID = aRun -> GetRunID();
-  //G4String filename1 = "/data/runzezhang/result/TN_box/dmx_Cfneutron_Ncry_1E6_" + std::to_string(runID) + ".root";
-  //savehistFile = filename1;
+  G4AnalysisManager* man = G4AnalysisManager::Instance();
+  G4int runID = aRun -> GetRunID();
+  G4String filename1 = "/data/runzezhang/result/TN_box/dmx_Cfneutron_Ncry_1E6_" + std::to_string(runID) + ".root";
+  savehistFile = filename1;
+  man->OpenFile(savehistFile);
 
 
   //Master mode or sequential
@@ -142,13 +167,13 @@ void DMXRunAction::EndOfRunAction(const G4Run*)
 void DMXRunAction::Book()
 {
 // Get/create analysis manager
-  G4AnalysisManager* man = G4AnalysisManager::Instance();
+  /*G4AnalysisManager* man = G4AnalysisManager::Instance();
 
   man->SetVerboseLevel(2);
   man->SetDefaultFileType("root");
 
   // Open an output file
-  man->OpenFile(savehistFile);
+  //man->OpenFile(savehistFile);
   //man->SetFirstHistoId(1);
   //man->SetFirstNtupleId(1);
 
@@ -169,7 +194,7 @@ void DMXRunAction::Book()
   man->CreateNtupleSColumn("Volume");
   man->CreateNtupleSColumn("Process");
   man->FinishNtuple();
-
+    */
   /*// Get/create analysis manager
   G4AnalysisManager* man = G4AnalysisManager::Instance();
   man->SetDefaultFileType("root");
