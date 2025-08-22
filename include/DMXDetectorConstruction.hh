@@ -176,6 +176,8 @@ private:
   G4VPhysicalVolume* physCyl;
   G4LogicalVolume*   logicSap;
   G4VPhysicalVolume* physSap;
+  G4LogicalVolume*   logicSap2;
+  G4VPhysicalVolume* physSap2;
   G4LogicalVolume*   logicAr;
   G4VPhysicalVolume* physAr;
   
