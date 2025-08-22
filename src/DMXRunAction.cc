@@ -80,6 +80,9 @@ DMXRunAction::DMXRunAction()
  */
   savehitsFile = "hits.out";
   savepmtFile  = "pmt.out";
+  auto man = G4AnalysisManager::Instance();
+  man->SetFirstHistoId(1);
+  man->SetFirstNtupleId(1);
 
 }
 
@@ -141,8 +144,8 @@ void DMXRunAction::Book()
 
   // Open an output file
   man->OpenFile(savehistFile);
-  man->SetFirstHistoId(1);
-  man->SetFirstNtupleId(1);
+  //man->SetFirstHistoId(1);
+  //man->SetFirstNtupleId(1);
 
    man->CreateNtuple("tree", "Scintillation Info");
   man->CreateNtupleDColumn("Event");
