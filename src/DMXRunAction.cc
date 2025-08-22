@@ -80,7 +80,7 @@ DMXRunAction::DMXRunAction()
  */
   savehitsFile = "hits.out";
   savepmtFile  = "pmt.out";
-  savehistFile = "/data/runzezhang/result/TN_box/dmx_Cfneutron_Ncry_1E6.root";
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
@@ -100,7 +100,10 @@ void DMXRunAction::BeginOfRunAction(const G4Run* aRun)
   // Logan ROOT
   /*auto aMan = G4AnalysisManager::Instance();
   aMan->OpenFile( "Data_ryan.root" );*/
-  
+  savehistFile = "/data/runzezhang/result/TN_box/dmx_Cfneutron_Ncry_1E6.root";
+  G4int runID = aRun -> GetRunID();
+  G4String filename1 = "/data/runzezhang/result/TN_box/dmx_Cfneutron_Ncry_1E6_" + std::to_string(runID) + ".root";
+  savehistFile = filename1
   //Master mode or sequential
   if (IsMaster())    
     G4cout << "### Run " << aRun->GetRunID() << " starts (master)." << G4endl;
