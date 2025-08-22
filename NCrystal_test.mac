@@ -31,68 +31,68 @@
 /gps/ene/type Mono
 /gps/ene/mono 1e-11 MeV
 /run/beamOn 5
-/*
-# 1e-4 eV = 1e-10 MeV
-/gps/ene/type Mono
-/gps/ene/mono 1e-10 MeV
-/run/beamOn 5
 
-# 1e-3 eV = 1e-9 MeV
-/gps/ene/type Mono
-/gps/ene/mono 1e-9 MeV
-/run/beamOn 5
+## 1e-4 eV = 1e-10 MeV
+#/gps/ene/type Mono
+#/gps/ene/mono 1e-10 MeV
+#/run/beamOn 5
+#
+## 1e-3 eV = 1e-9 MeV
+#/gps/ene/type Mono
+#/gps/ene/mono 1e-9 MeV
+#/run/beamOn 5
+#
+## 1e-2 eV = 1e-8 MeV
+#/gps/ene/type Mono
+#/gps/ene/mono 1e-8 MeV
+#/run/beamOn 5
+#
+## 1e-1 eV = 1e-7 MeV
+#/gps/ene/type Mono
+#/gps/ene/mono 1e-7 MeV
+#/run/beamOn 5
+#
+## 1 eV = 1e-6 MeV
+#/gps/ene/type Mono
+#/gps/ene/mono 1e-6 MeV
+#/run/beamOn 5
+#
+## 10 eV = 1e-5 MeV
+#/gps/ene/type Mono
+#/gps/ene/mono 1e-5 MeV
+#/run/beamOn 5
+#
+## 100 eV = 1e-4 MeV
+#/gps/ene/type Mono
+#/gps/ene/mono 1e-4 MeV
+#/run/beamOn 5
+#
+## 1 keV = 1e-3 MeV
+#/gps/ene/type Mono
+#/gps/ene/mono 1e-3 MeV
+#/run/beamOn 5
+#
+## 10 keV = 1e-2 MeV
+#/gps/ene/type Mono
+#/gps/ene/mono 1e-2 MeV
+#/run/beamOn 5
+#
+## 100 keV = 1e-1 MeV
+#/gps/ene/type Mono
+#/gps/ene/mono 1e-1 MeV
+#/run/beamOn 5
+#
+## 1 MeV
+#/gps/ene/type Mono
+#/gps/ene/mono 1 MeV
+#/run/beamOn 5
+#
+## 10 MeV
+#/gps/ene/type Mono
+#/gps/ene/mono 10 MeV
+#/run/beamOn 5
 
-# 1e-2 eV = 1e-8 MeV
-/gps/ene/type Mono
-/gps/ene/mono 1e-8 MeV
-/run/beamOn 5
 
-# 1e-1 eV = 1e-7 MeV
-/gps/ene/type Mono
-/gps/ene/mono 1e-7 MeV
-/run/beamOn 5
-
-# 1 eV = 1e-6 MeV
-/gps/ene/type Mono
-/gps/ene/mono 1e-6 MeV
-/run/beamOn 5
-
-# 10 eV = 1e-5 MeV
-/gps/ene/type Mono
-/gps/ene/mono 1e-5 MeV
-/run/beamOn 5
-
-# 100 eV = 1e-4 MeV
-/gps/ene/type Mono
-/gps/ene/mono 1e-4 MeV
-/run/beamOn 5
-
-# 1 keV = 1e-3 MeV
-/gps/ene/type Mono
-/gps/ene/mono 1e-3 MeV
-/run/beamOn 5
-
-# 10 keV = 1e-2 MeV
-/gps/ene/type Mono
-/gps/ene/mono 1e-2 MeV
-/run/beamOn 5
-
-# 100 keV = 1e-1 MeV
-/gps/ene/type Mono
-/gps/ene/mono 1e-1 MeV
-/run/beamOn 5
-
-# 1 MeV
-/gps/ene/type Mono
-/gps/ene/mono 1 MeV
-/run/beamOn 5
-
-# 10 MeV
-/gps/ene/type Mono
-/gps/ene/mono 10 MeV
-/run/beamOn 5
-
-*/
 
 
 #/random/setDirectoryName ./seeds
