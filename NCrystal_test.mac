@@ -31,7 +31,7 @@
 /gps/ene/type Mono
 /gps/ene/mono 1e-11 MeV
 /run/beamOn 5
-
+/*
 # 1e-4 eV = 1e-10 MeV
 /gps/ene/type Mono
 /gps/ene/mono 1e-10 MeV
@@ -92,7 +92,7 @@
 /gps/ene/mono 10 MeV
 /run/beamOn 5
 
-
+*/
 
 
 #/random/setDirectoryName ./seeds
