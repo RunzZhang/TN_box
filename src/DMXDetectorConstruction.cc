@@ -194,8 +194,8 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
   physSap = new G4PVPlacement(0, G4ThreeVector(0.,0.,(0.5*(V_l+S_l)+P_l)-0.5*(P_p-P_w)), logicSap, "physSap", logicS, false, 0);
 
   // Sapphire Window
-  G4Box* solidSap2 = new G4Box("solidSap2", 0.5*S_w, 0.5*S_w, 1*mm); 
-  logicSap2 = new G4LogicalVolume(solidSap2, sapphireNCrystal_mat, "logicSap");  //sapphireNCrystal_mat
+  G4Box* solidSap2 = new G4Box("solidSap2", 0.5*S_w, 0.5*S_w, 1*mm);
+  logicSap2 = new G4LogicalVolume(solidSap2, sapphireNCrystal_mat, "logicSap2");  //sapphireNCrystal_mat
   physSap2 = new G4PVPlacement(0, G4ThreeVector(1*m,0.,(0.5*(V_l+S_l)+P_l)-0.5*(P_p-P_w)), logicSap2, "physSap2", logicWorld, false, 0);  // transform to make test cross section
 
 
