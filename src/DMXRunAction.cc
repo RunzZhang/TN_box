@@ -120,9 +120,12 @@ void DMXRunAction::BeginOfRunAction(const G4Run* aRun)
 void DMXRunAction::EndOfRunAction(const G4Run*)
 {
   // Logan ROOT
-  auto aMan = G4AnalysisManager::Instance();
+  /*auto aMan = G4AnalysisManager::Instance();
   aMan->Write();
-  aMan->CloseFile();
+  aMan->CloseFile();*/
+    auto man = G4AnalysisManager::Instance()
+  man->Write();
+  man->CloseFile();
 
 }
 
