@@ -1,0 +1,157 @@
+###############################################################################
+#                                                                             #
+# neutron.mac                                                                 #
+# 1 neutron fired in the room                                                 #
+#                                                                             #
+###############################################################################
+
+# verbosities
+/control/verbose 0
+/run/verbose 1
+/tracking/verbose 0
+/hits/verbose 1
+#turn off the scintillation
+
+#/process/optical/scintillation/setByParticleType False
+#/process/optical/scintillation/setStackPhotons 1
+
+#/process/list all
+#/process/inactivate Scintillation e-
+#/run/setCutForAGivenParticle e- 1 mm
+
+
+# draw flags
+##/dmx/draw/drawTracks noscint
+#
+# file output
+#
+# kill gammas in lab wall
+/dmx/KillGammasInConcrete 0
+
+# using GPS for ambe_spectrum:
+
+#/gps/pos/type Plane
+#/gps/pos/shape Square
+#/gps/pos/halfx 0.15 m
+#/gps/pos/halfy 0.15 m
+
+/gps/pos/centre 1 0 0 m 
+
+/gps/direction 0 0 1
+
+#
+#
+#/gps/ene/type Bbody
+#/gps/ene/temp 297
+#/gps/ene/min 0.0001 eV
+#/gps/ene/max 10 eV
+
+#/gps/ene/type Lin
+#/gps/ene/min 0.0001 eV
+#/gps/ene/max 0.001 eV
+#/gps/ene/intercept 1
+#/gps/ene/gradient 0
+
+
+#/gps/ene/type Mono
+
+#/gps/ene/mono 2.4 MeV
+
+/gps/ene/type Mono
+#/gps/hist/type arb
+
+# Log-spaced energy bins with equal probability
+# 1e-5 eV = 1e-11 MeV
+/gps/ene/type Mono
+/gps/ene/mono 1e-11 MeV
+/run/beamOn 10000
+
+# 1e-4 eV = 1e-10 MeV
+/gps/ene/type Mono
+/gps/ene/mono 1e-10 MeV
+/run/beamOn 10000
+
+# 1e-3 eV = 1e-9 MeV
+/gps/ene/type Mono
+/gps/ene/mono 1e-9 MeV
+/run/beamOn 10000
+
+# 1e-2 eV = 1e-8 MeV
+/gps/ene/type Mono
+/gps/ene/mono 1e-8 MeV
+/run/beamOn 10000
+
+# 1e-1 eV = 1e-7 MeV
+/gps/ene/type Mono
+/gps/ene/mono 1e-7 MeV
+/run/beamOn 10000
+
+# 1 eV = 1e-6 MeV
+/gps/ene/type Mono
+/gps/ene/mono 1e-6 MeV
+/run/beamOn 10000
+
+# 10 eV = 1e-5 MeV
+/gps/ene/type Mono
+/gps/ene/mono 1e-5 MeV
+/run/beamOn 10000
+
+# 100 eV = 1e-4 MeV
+/gps/ene/type Mono
+/gps/ene/mono 1e-4 MeV
+/run/beamOn 10000
+
+# 1 keV = 1e-3 MeV
+/gps/ene/type Mono
+/gps/ene/mono 1e-3 MeV
+/run/beamOn 10000
+
+# 10 keV = 1e-2 MeV
+/gps/ene/type Mono
+/gps/ene/mono 1e-2 MeV
+/run/beamOn 10000
+
+# 100 keV = 1e-1 MeV
+/gps/ene/type Mono
+/gps/ene/mono 1e-1 MeV
+/run/beamOn 10000
+
+# 1 MeV
+/gps/ene/type Mono
+/gps/ene/mono 1 MeV
+/run/beamOn 10000
+
+# 10 MeV
+/gps/ene/type Mono
+/gps/ene/mono 10 MeV
+/run/beamOn 10000
+
+#/gps/ene/mono 1e-11 MeV
+#/gps/ene/mono 1e-10 MeV
+#/gps/ene/mono 1e-9 MeV
+#/gps/hist/point 1e-10 1
+#/gps/hist/point 1e-9 1
+#/gps/hist/point 1e-8 1
+#/gps/hist/point 1e-7 1
+#/gps/hist/point 1e-6  1
+#/gps/hist/point 1e-5  1
+#/gps/hist/point 1e-4  1
+#/gps/hist/point 1e-3  1
+#/gps/hist/point 1e-2  1
+#/gps/hist/point 1e-1  1
+#/gps/hist/point 1e0  1
+#/gps/hist/point 1e1  1
+#/gps/hist/inter Log
+
+/gps/particle neutron
+
+
+#/random/setDirectoryName ./seeds
+#/random/setSavingFlag
+
+/random/setSeeds 5338 17544
+
+#/run/beamOn 10000000
+#/run/beamOn 100000
+#/run/beamOn 10
+
