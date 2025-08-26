@@ -180,7 +180,8 @@ void DMXSteppingAction::UserSteppingAction(const G4Step* fStep)
       G4String processn = process->GetProcessName();
       man->FillNtupleSColumn(11,processn);}
   man->AddNtupleRow();}*/
-      if (volume == "physSap"||volume =="physSD2"||volume =="physWorld")
+
+      if (volume == "physSap"||volume =="physSD2"||volume =="physWorld"||volume =="physAr2"||volume =="physAr3")
         {
           man->FillNtupleSColumn(1,particleName);
   man->FillNtupleIColumn(2,parentid);
