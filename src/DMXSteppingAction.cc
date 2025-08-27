@@ -97,8 +97,8 @@ void DMXSteppingAction::UserSteppingAction(const G4Step* fStep)
   //if(fStep->GetTrack()->GetDefinition() != G4Gamma::GammaDefinition()){
     //fStep->GetTrack()->SetTrackStatus(fKillTrackAndSecondaries);}
 
-//    if(fStep->GetTrack()->GetDefinition() != G4Neutron::NeutronDefinition()){
-//    fStep->GetTrack()->SetTrackStatus(fKillTrackAndSecondaries);}
+    if(fStep->GetTrack()->GetDefinition() != G4Neutron::NeutronDefinition()){
+    fStep->GetTrack()->SetTrackStatus(fKillTrackAndSecondaries);}
   
   if (!evtAction)
     evtAction = 
