@@ -184,7 +184,7 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
   // Filter
   G4Box* solidPoly = new G4Box("solidPoly", 0.5*(2*P_w+V_l), 0.5*(2*P_w+V_l), 0.5*(P_w+V_l+P_p)); //0.5*(P_w+V_l+P_l+S_l)
 //  G4Box* vacuumNotch = new G4Box("vacuumNotch", 0.5*S_w, 0.5*S_w, 0.5*(P_p-P_l-S_l)); //0.5*(P_w+V_l+P_l+S_l) //0.5*(P_p-P_l-S_l)
-  G4Box* vacuumNotch = new G4Tubs("vacuumNotch",0,           // inner radius
+  G4Tubs* vacuumNotch = new G4Tubs("vacuumNotch",0,           // inner radius
                                    0.5*S_w,      // outer radius
                                    0.5*(P_p-P_l-S_l),  // half-length along Z
                                    0,           // start angle
@@ -201,7 +201,7 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
 //  logicSap = new G4LogicalVolume(solidSap, sapphireNCrystal_mat, "logicSap");  //sapphireNCrystal_mat
 //   physSap = new G4PVPlacement(0, G4ThreeVector(0.,0.,(0.5*(V_l+S_l)+P_l)-0.5*(P_p-P_w)), logicSap, "physSap", logicS, false, 0);
 
-   G4Box* solidSap = new G4Tubs("solidSap",
+   G4Tubs* solidSap = new G4Tubs("solidSap",
                                    0,           // inner radius
                                    0.5*S_w,      // outer radius
                                    0.5*S_l,  // half-length along Z
