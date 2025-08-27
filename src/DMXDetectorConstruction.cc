@@ -208,17 +208,17 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
 
 
   // Test Argon
-  G4Box* solidAr = new G4Box("solidAr", 0.5*A_l, 0.5*A_l, 0.5*A_l);
-  logicAr = new G4LogicalVolume(solidAr, LAr_mat, "logicAr");  //sapphire_mat
-  physAr = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(P_w+V_l+P_p)+0.5*(P_p-P_w)+1*m+0.5*A_l), logicAr, "physAr", logicWorld, false, 0);
+//  G4Box* solidAr = new G4Box("solidAr", 0.5*A_l, 0.5*A_l, 0.5*A_l);
+//  logicAr = new G4LogicalVolume(solidAr, LAr_mat, "logicAr");  //sapphire_mat
+//  physAr = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(P_w+V_l+P_p)+0.5*(P_p-P_w)+1*m+0.5*A_l), logicAr, "physAr", logicWorld, false, 0);
 
-//  G4Box* solidAr2 = new G4Box("solidAr2", 0.5*SBC_l, 0.5*SBC_l, 0.5*SD_T);
-//  logicAr2 = new G4LogicalVolume(solidAr2, LAr_mat, "logicAr2");  //sapphire_mat
-//  physAr2 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(P_w+V_l+P_p)+0.5*(P_p-P_w)+0.5*SD_T), logicAr2, "physAr2", logicWorld, false, 0);
-//
-//  G4Box* solidAr3 = new G4Box("solidAr3", 0.5*SBC_l, 0.5*SBC_l, 0.5*SD_T);
-//  logicAr3 = new G4LogicalVolume(solidAr3, LAr_mat, "logicAr3");  //sapphire_mat
-//  physAr3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(P_w+V_l+P_p)+0.5*(P_p-P_w)+SD_D+0.5*SD_T), logicAr3, "physAr3", logicWorld, false, 0);
+  G4Box* solidVac2 = new G4Box("solidVac2", 0.5*SBC_l, 0.5*SBC_l, 0.5*SD_T);
+  logicVac2 = new G4LogicalVolume(solidVac2, vacuumNCrystal_mat, "logicVac2");  //sapphire_mat
+  physVac2 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(P_w+V_l+P_p)+0.5*(P_p-P_w)+0.5*SD_T), logicVac2, "physVac2", logicWorld, false, 0);
+
+  G4Box* solidVac3 = new G4Box("solidVac3", 0.5*SBC_l, 0.5*SBC_l, 0.5*SD_T);
+  logicVac3 = new G4LogicalVolume(solidVac3, vacuumNCrystal_mat, "logicVac3");  //sapphire_mat
+  physVac3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(P_w+V_l+P_p)+0.5*(P_p-P_w)+SD_D+0.5*SD_T), logicVac3, "physVac3", logicWorld, false, 0);
 
   // SD before
  // G4Box* solidSD1 = new G4Box("solidSD1", S_l, S_l, 1*mm); 

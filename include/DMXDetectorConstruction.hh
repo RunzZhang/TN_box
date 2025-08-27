@@ -180,10 +180,10 @@ private:
   G4VPhysicalVolume* physSap2;
   G4LogicalVolume*   logicAr;
   G4VPhysicalVolume* physAr;
-  G4LogicalVolume*   logicAr2;
-  G4VPhysicalVolume* physAr2;
-  G4LogicalVolume*   logicAr3;
-  G4VPhysicalVolume* physAr3;
+  G4LogicalVolume*   logicVac2;
+  G4VPhysicalVolume* physVac2;
+  G4LogicalVolume*   logicVac3;
+  G4VPhysicalVolume* physVac3;
   
 
 
