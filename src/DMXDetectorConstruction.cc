@@ -262,7 +262,8 @@ void DMXDetectorConstruction::ConstructSDandField()
       SetSensitiveDetector(logicSD2,LXeSD.Get());
       SetSensitiveDetector(logicWorld,LXeSD.Get());
       SetSensitiveDetector(logicSap,LXeSD.Get());
-//      SetSensitiveDetector(logicAr,LXeSD.Get());}
+//      SetSensitiveDetector(logicAr,LXeSD.Get());
+      }
   /*if (LXe_log)    
     SetSensitiveDetector(LXe_log,LXeSD.Get());
 
