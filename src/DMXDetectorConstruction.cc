@@ -160,7 +160,7 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
   // World
   //
   G4double world_sizeXY = 2.5*m;
-  G4double world_sizeZ  = 2.5*m;
+  G4double world_sizeZ  = 3.5*m;
   //G4Material* world_mat = nist->FindOrBuildMaterial("G4_AIR");
   
   G4Box* solidWorld =    
