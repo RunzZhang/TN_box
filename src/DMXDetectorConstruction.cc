@@ -144,6 +144,7 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
   // Envelope parameters
   //
   G4double S_l = 7.5*cm, S_w=5*cm, V_l = 3*cm,N_l = 10*cm, P_w = 25*cm, P_l = 6*cm, P_p = (S_l+P_l)+N_l, A_l = 30.48*cm;
+  //python for quick test: S_l = 75, S_w =5, V_l=3, N_l =10, P_w =25, P_l =6, P_p= S_l+P_l+N_l, A_l = 30.48, SBC_l = 200, SD_T = 2, SD_D =100
   //sapphire window length and width, S_l and S_w; V_l empty source length; N_l, vacuum notch length; P_w lenth of HPDE subtracted by the vaccum source space on x or y direction;
    //P_l is distance between sapphire and source,P_p is the middle HDPE + sapphire +10cm(vacuum notch length=10cm) offset
   //A_l test argon length
@@ -245,7 +246,9 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
 
   G4Box* solidVac3 = new G4Box("solidVac3", 0.5*SBC_l, 0.5*SBC_l, 0.5*SD_T);
   logicVac3 = new G4LogicalVolume(solidVac3, vacuumNCrystal_mat, "logicVac3");  //sapphire_mat
-  physVac3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(V_l*P_p)+0.5*(P_p-P_w)+SD_D+0.5*SD_T), logicVac3, "physVac3", logicWorld, false, 0);
+//  physVac3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(V_l*P_p)+0.5*(P_p-P_w)+SD_D+0.5*SD_T), logicVac3, "physVac3", logicWorld, false, 0);
+
+  physVac3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(V_l*P_p)+0.5*(P_p-P_w)+10*cm+0.5*SD_T), logicVac3, "physVac3", logicWorld, false, 0);
 
   // SD before
  // G4Box* solidSD1 = new G4Box("solidSD1", S_l, S_l, 1*mm); 
