@@ -129,7 +129,7 @@ void DMXRunAction::BeginOfRunAction(const G4Run* aRun)
   aMan->OpenFile( "Data_ryan.root" );*/
 
 
-  savehistFile = "/data/runzezhang/result/TN_box/dmx_Cfneutron_double_Arplane_1E6.root";
+  savehistFile = "/data/runzezhang/result/TN_box/dmx_Cfneutron_vertical_Arplane_1E6.root";
   G4AnalysisManager* man = G4AnalysisManager::Instance();
   G4int runID = aRun -> GetRunID();
 //  G4String filename1 = "/data/runzezhang/result/TN_box/dmx_Cfneutron_Ncry_1E6_" + std::to_string(runID) + ".root";
