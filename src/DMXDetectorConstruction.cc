@@ -208,7 +208,7 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
   // Sapphire Window
   G4Box* solidSap = new G4Box("solidSap", 0.5*S_w, 0.5*S_w, 0.5*S_l);
   logicSap = new G4LogicalVolume(solidSap, sapphireNCrystal_mat, "logicSap");  //sapphireNCrystal_mat
-   physSap1 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(S_l+V_l+2*P_l)+0.5*(P_p-P_w)), logicSap, "physSap1", logicS, false, 0);
+   physSap1 = new G4PVPlacement(0, G4ThreeVector(0.,V_l+P_p,0.5*(S_l+V_l+2*P_l)+0.5*(P_p-P_w)), logicSap, "physSap1", logicS, false, 0);
 
 
 
@@ -260,7 +260,7 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
 
   logicSD2 = new G4LogicalVolume(solidSD2, vacuumNCrystal_mat, "logicSD2");
   physSD2 = new G4PVPlacement(0, G4ThreeVector(0.,0.,+0.5*(P_p-P_w)), logicSD2, "physSD2", logicS, false, 0);  //0.5*(P_l+S_l-P_w)
-  //physSD3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,V_l+P_p -0.5*(2*P_p-P_w+V_l)), logicSD2, "physSD3", logicS, false, 0);  //0.5*(P_l+S_l-P_w)
+  physSD3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,V_l+P_p -0.5*(2*P_p-P_w+V_l)), logicSD2, "physSD3", logicS, false, 0);  //0.5*(P_l+S_l-P_w)
   //cylinder empty
 //  G4Tubs* solidSD2 = new G4Tubs("solidSD2",
 //                                   0,           // inner radius
