@@ -248,7 +248,7 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
   logicVac3 = new G4LogicalVolume(solidVac3, vacuumNCrystal_mat, "logicVac3");  //sapphire_mat
 //  physVac3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(V_l*P_p)+0.5*(P_p-P_w)+SD_D+0.5*SD_T), logicVac3, "physVac3", logicWorld, false, 0);
 
-  physVac3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(V_l*P_p)+0.5*(P_p-P_w)+10*cm+0.5*SD_T), logicVac3, "physVac3", logicWorld, false, 0);
+  //physVac3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(V_l*P_p)+0.5*(P_p-P_w)+10*cm+0.5*SD_T), logicVac3, "physVac3", logicWorld, false, 0);
 
   // SD before
  // G4Box* solidSD1 = new G4Box("solidSD1", S_l, S_l, 1*mm); 
