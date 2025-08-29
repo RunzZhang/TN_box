@@ -185,31 +185,32 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
                      
 
   // Filter
-  G4Box* solidPoly = new G4Box("solidPoly", 0.5*(2*P_w+V_l), 0.5*(2*P_w+V_l), 0.5*(P_w+2*V_l+2*P_p)); //0.5*(P_w+V_l+P_l+S_l)
+  G4Box* solidPoly = new G4Box("solidPoly", 0.5*(2*P_w+3*V_l+2*P_p), 0.5*(2*P_w+3*V_l+2*P_p), 0.5*(P_w+V_l+P_p)); //0.5*(P_w+V_l+P_l+S_l)
   G4Box* vacuumNotch = new G4Box("vacuumNotch", 0.5*S_w, 0.5*S_w, 0.5*(P_p-P_l-S_l)); //0.5*(P_w+V_l+P_l+S_l) //0.5*(P_p-P_l-S_l)
 //  G4Tubs* vacuumNotch = new G4Tubs("vacuumNotch",0,           // inner radius
 //                                   0.5*S_w,      // outer radius
 //                                   0.5*(P_p-P_l-S_l),  // half-length along Z
 //                                   0,           // start angle
 //                                   2*M_PI);     // full cylinder
-  G4ThreeVector trans1 = G4ThreeVector(0.,0.,0.5*(P_w+2*V_l+2*P_p-N_l)); // make z+ side the vaccum notch touch the Poly edge
-  G4ThreeVector trans2 = G4ThreeVector(0.,0.,0.5*(P_w-N_l)); // make z+ side the vaccum notch touch the Poly edge
-  G4RotationMatrix rot = G4RotationMatrix(0.,0.,0.);
-  G4Transform3D transform1 = G4Transform3D(rot,trans1);
-  G4Transform3D transform2 = G4Transform3D(rot,trans2);
+  G4ThreeVector trans1 = G4ThreeVector(0.,0.,0.5*(V_l+2*P_p-N_l)); // make z+ side the vaccum notch touch the Poly edge
+  G4ThreeVector trans2 = G4ThreeVector(0,0.5*(V_l+2*P_p-N_l),0.); // make z+ side the vaccum notch touch the Poly edge
+  G4RotationMatrix rot1 = G4RotationMatrix(0.,0.,0.);
+  G4RotationMatrix rot2 = G4RotationMatrix(90*deg,0,0.);
+  G4Transform3D transform1 = G4Transform3D(rot1,trans1);
+  G4Transform3D transform2 = G4Transform3D(rot2,trans2);
   G4VSolid* solidS1 = new G4SubtractionSolid("solidS1" ,solidPoly, vacuumNotch, transform1);
   G4VSolid* solidS2 = new G4SubtractionSolid("solidS2" ,solidS1, vacuumNotch, transform2);
   logicS = new G4LogicalVolume(solidS2, HDPENCrystal_mat, "logicS"); //HDPENCrystal_mat
-  physS = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(2*P_p-P_w+V_l)), logicS, "physS", logicWorld, false, 0);
+  physS = new G4PVPlacement(0, G4ThreeVector(0.,0.,-0.5*(P_p-P_w)), logicS, "physS", logicWorld, false, 0);
  
   // Sapphire Window
   G4Box* solidSap = new G4Box("solidSap", 0.5*S_w, 0.5*S_w, 0.5*S_l);
   logicSap = new G4LogicalVolume(solidSap, sapphireNCrystal_mat, "logicSap");  //sapphireNCrystal_mat
-   physSap1 = new G4PVPlacement(0, G4ThreeVector(0.,0.,(0.5*(V_l+S_l)+P_l)-0.5*(2*P_p-P_w+V_l)), logicSap, "physSap1", logicS, false, 0);
+   physSap1 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(S_l+V_l)+0.5*(P_p-P_w)), logicSap, "physSap1", logicS, false, 0);
 
 
 
-   physSap2 = new G4PVPlacement(0, G4ThreeVector(0.,0.,(0.5*(3*V_l+S_l)+P_l+P_p)-0.5*(2*P_p-P_w+V_l)), logicSap, "physSap2", logicS, false, 0);
+   physSap2 = new G4PVPlacement(rot2, G4ThreeVector(0,0.5*(S_l+V_l),+0.5*(P_p-P_w)), logicSap, "physSap2", logicS, false, 0);
 
 //   G4Tubs* solidSap = new G4Tubs("solidSap",
 //                                   0,           // inner radius
@@ -239,11 +240,11 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
 
   G4Box* solidVac2 = new G4Box("solidVac2", 0.5*SBC_l, 0.5*SBC_l, 0.5*SD_T);
   logicVac2 = new G4LogicalVolume(solidVac2, vacuumNCrystal_mat, "logicVac2");  //sapphire_mat
-  physVac2 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(P_w+2*V_l+2*P_p)+0.5*(2*P_p-P_w+V_l)+0.5*SD_T), logicVac2, "physVac2", logicWorld, false, 0);
+  physVac2 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(V_l+2*P_p)+0.5*(P_p-P_w)+0.5*SD_T), logicVac2, "physVac2", logicWorld, false, 0);
 
   G4Box* solidVac3 = new G4Box("solidVac3", 0.5*SBC_l, 0.5*SBC_l, 0.5*SD_T);
   logicVac3 = new G4LogicalVolume(solidVac3, vacuumNCrystal_mat, "logicVac3");  //sapphire_mat
-  physVac3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(P_w+2*V_l+2*P_p)+0.5*(2*P_p-P_w+V_l)+SD_D+0.5*SD_T), logicVac3, "physVac3", logicWorld, false, 0);
+  physVac3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(V_l+2*P_p)+0.5*(P_p-P_w)+SD_D+0.5*SD_T), logicVac3, "physVac3", logicWorld, false, 0);
 
   // SD before
  // G4Box* solidSD1 = new G4Box("solidSD1", S_l, S_l, 1*mm); 
@@ -254,8 +255,8 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
   G4Box* solidSD2 = new G4Box("solidSD2", 0.5*V_l, 0.5*V_l, 0.5*V_l);
 
   logicSD2 = new G4LogicalVolume(solidSD2, vacuumNCrystal_mat, "logicSD2");
-  physSD2 = new G4PVPlacement(0, G4ThreeVector(0.,0.,-0.5*(2*P_p-P_w+V_l)), logicSD2, "physSD2", logicS, false, 0);  //0.5*(P_l+S_l-P_w)
-  physSD3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,V_l+P_p -0.5*(2*P_p-P_w+V_l)), logicSD2, "physSD3", logicS, false, 0);  //0.5*(P_l+S_l-P_w)
+  physSD2 = new G4PVPlacement(0, G4ThreeVector(0.,0.,+0.5*(P_p-P_w)), logicSD2, "physSD2", logicS, false, 0);  //0.5*(P_l+S_l-P_w)
+  //physSD3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,V_l+P_p -0.5*(2*P_p-P_w+V_l)), logicSD2, "physSD3", logicS, false, 0);  //0.5*(P_l+S_l-P_w)
   //cylinder empty
 //  G4Tubs* solidSD2 = new G4Tubs("solidSD2",
 //                                   0,           // inner radius
