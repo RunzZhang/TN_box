@@ -195,7 +195,8 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
   G4ThreeVector trans1 = G4ThreeVector(0.,0.,0.5*(V_l+2*P_p-N_l)); // make z+ side the vaccum notch touch the Poly edge
   G4ThreeVector trans2 = G4ThreeVector(0,0.5*(V_l+2*P_p-N_l),0.); // make z+ side the vaccum notch touch the Poly edge
   G4RotationMatrix rot1 = G4RotationMatrix(0.,0.,0.);
-  G4RotationMatrix rot2 = G4RotationMatrix(90*deg,0,0.);
+  G4RotationMatrix rot2;
+  rot2.rotateX(90*deg);
   G4Transform3D transform1 = G4Transform3D(rot1,trans1);
   G4Transform3D transform2 = G4Transform3D(rot2,trans2);
   G4VSolid* solidS1 = new G4SubtractionSolid("solidS1" ,solidPoly, vacuumNotch, transform1);
