@@ -206,13 +206,13 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
   physS = new G4PVPlacement(0, G4ThreeVector(0.,0.,-0.5*(P_p-P_w)), logicS, "physS", logicWorld, false, 0);
  
   // Sapphire Window
-  G4Box* solidSap = new G4Box("solidSap", 0.5*S_w, 0.5*S_w, 0.5*S_l);
-  logicSap = new G4LogicalVolume(solidSap, sapphireNCrystal_mat, "logicSap");  //sapphireNCrystal_mat
-   physSap2 = new G4PVPlacement(0, G4ThreeVector(0.,0.5*V_l+P_l+0.5*S_l,0.5*(S_l+V_l+2*P_l)+0.5*(P_p-P_w)), logicSap, "physSap2", logicS, false, 0);
-
-
-
-   physSap1 = new G4PVPlacement(&rot2, G4ThreeVector(0,0.5*(S_l+V_l+2*P_l),+0.5*(P_p-P_w)), logicSap, "physSap1", logicS, false, 0);
+//  G4Box* solidSap = new G4Box("solidSap", 0.5*S_w, 0.5*S_w, 0.5*S_l);
+//  logicSap = new G4LogicalVolume(solidSap, sapphireNCrystal_mat, "logicSap");  //sapphireNCrystal_mat
+//   physSap2 = new G4PVPlacement(0, G4ThreeVector(0.,0.5*V_l+P_l+0.5*S_l,0.5*(S_l+V_l+2*P_l)+0.5*(P_p-P_w)), logicSap, "physSap2", logicS, false, 0);
+//
+//
+//
+//   physSap1 = new G4PVPlacement(&rot2, G4ThreeVector(0,0.5*(S_l+V_l+2*P_l),+0.5*(P_p-P_w)), logicSap, "physSap1", logicS, false, 0);
 
 //   G4Tubs* solidSap = new G4Tubs("solidSap",
 //                                   0,           // inner radius
@@ -240,12 +240,12 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
 //  logicAr = new G4LogicalVolume(solidAr, LAr_mat, "logicAr");  //sapphire_mat
 //  physAr = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(P_w+V_l+P_p)+0.5*(P_p-P_w)+1*m+0.5*A_l), logicAr, "physAr", logicWorld, false, 0);
 
-  G4Box* solidVac2 = new G4Box("solidVac2", 0.5*SBC_l, 0.5*SBC_l, 0.5*SD_T);
-  logicVac2 = new G4LogicalVolume(solidVac2, vacuumNCrystal_mat, "logicVac2");  //sapphire_mat
-  physVac2 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(V_l+P_p)+0.5*(P_p-P_w)+0.5*SD_T), logicVac2, "physVac2", logicWorld, false, 0);
-
-  G4Box* solidVac3 = new G4Box("solidVac3", 0.5*SBC_l, 0.5*SBC_l, 0.5*SD_T);
-  logicVac3 = new G4LogicalVolume(solidVac3, vacuumNCrystal_mat, "logicVac3");  //sapphire_mat
+//  G4Box* solidVac2 = new G4Box("solidVac2", 0.5*SBC_l, 0.5*SBC_l, 0.5*SD_T);
+//  logicVac2 = new G4LogicalVolume(solidVac2, vacuumNCrystal_mat, "logicVac2");  //sapphire_mat
+//  physVac2 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(V_l+P_p)+0.5*(P_p-P_w)+0.5*SD_T), logicVac2, "physVac2", logicWorld, false, 0);
+//
+//  G4Box* solidVac3 = new G4Box("solidVac3", 0.5*SBC_l, 0.5*SBC_l, 0.5*SD_T);
+//  logicVac3 = new G4LogicalVolume(solidVac3, vacuumNCrystal_mat, "logicVac3");  //sapphire_mat
 //  physVac3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(V_l*P_p)+0.5*(P_p-P_w)+SD_D+0.5*SD_T), logicVac3, "physVac3", logicWorld, false, 0);
 
   //physVac3 = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.5*(V_l*P_p)+0.5*(P_p-P_w)+10*cm+0.5*SD_T), logicVac3, "physVac3", logicWorld, false, 0);
