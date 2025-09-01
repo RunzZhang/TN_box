@@ -213,7 +213,8 @@ rot2.rotateX(0*deg);
 
 
 
-   physSap1 = new G4PVPlacement(&rot2, G4ThreeVector(0,0.5*(S_l+V_l+2*P_l),+0.5*(P_p-P_w)), logicSap, "physSap1", logicS, false, 0);
+//   physSap1 = new G4PVPlacement(&rot2, G4ThreeVector(0,0.5*(S_l+V_l+2*P_l),+0.5*(P_p-P_w)), logicSap, "physSap1", logicS, false, 0);
+    physSap1 = new G4PVPlacement(transform2,+0.5*(P_p-P_w)), logicSap, "physSap1", logicS, false, 0);
 
 //   G4Tubs* solidSap = new G4Tubs("solidSap",
 //                                   0,           // inner radius
