@@ -213,7 +213,9 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
 
 
 //   physSap1 = new G4PVPlacement(&rot2, G4ThreeVector(0,0.5*(S_l+V_l+2*P_l),+0.5*(P_p-P_w)), logicSap, "physSap1", logicS, false, 0);
-    physSap1 = new G4PVPlacement(transform2, logicSap, "physSap1", logicS, false, 0);
+    G4ThreeVector trans3 = G4ThreeVector(0,0.5*(S_l+V_l+2*P_l),+0.5*(P_p-P_w));
+    G4Transform3D transform3 = G4Transform3D(rot2,trans3);
+    physSap1 = new G4PVPlacement(transform3, logicSap, "physSap1", logicS, false, 0);
 
 //   G4Tubs* solidSap = new G4Tubs("solidSap",
 //                                   0,           // inner radius
