@@ -143,7 +143,7 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
 
   // Envelope parameters
   //
-  G4double S_l = 7.5*cm, S_w=5*cm, V_l = 3*cm, P_w = 25*cm, P_l = 6*cm, P_p = (S_l+P_l)+10*cm, A_l = 30.48*cm, Thin_height = 0.5*cm;
+  G4double S_l = 7.5*cm, S_w=15*cm, V_l = 3*cm, P_w = 25*cm, P_l = 6*cm, P_p = (S_l+P_l)+10*cm, A_l = 30.48*cm, Thin_height = 0.5*cm;
   G4double SBC_l = 2*m, SD_T = 2*cm, SD_D = 1*m;
   // SBC_length is the height of SBC chamber and SD_T is sensitive detector thickness, which is test argon thickness in z axis, and SD_D is the sensitive detector distance which is the 2nd SD distance to HDPE box
 
