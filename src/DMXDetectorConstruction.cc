@@ -143,7 +143,7 @@ G4VPhysicalVolume* DMXDetectorConstruction::Construct() {
 
   // Envelope parameters
   //
-  G4double S_l = 7.5*cm, S_w=5*cm, V_l = 3*cm,N_l = 10*cm, P_w = 25*cm, P_l = 6*cm, P_p = (S_l+P_l)+N_l, A_l = 30.48*cm;
+  G4double S_l = 7.5*cm, S_w=15*cm, V_l = 3*cm,N_l = 10*cm, P_w = 25*cm, P_l = 6*cm, P_p = (S_l+P_l)+N_l, A_l = 30.48*cm;
   //sapphire window length and width, S_l and S_w; V_l empty source length; N_l, vacuum notch length; P_w lenth of HPDE subtracted by the vaccum source space on x or y direction;
    //P_l is distance between sapphire and source,P_p is the middle HDPE + sapphire +10cm(vacuum notch length=10cm) offset
   //A_l test argon length
