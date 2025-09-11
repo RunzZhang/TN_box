@@ -96,8 +96,8 @@ DMXRunAction::DMXRunAction()
   man->CreateNtupleDColumn("px/MeV");
   man->CreateNtupleDColumn("py/MeV");
   man->CreateNtupleDColumn("pz/MeV");
-  man->CreateNtupleDColumn("Kinetic/keV");
-  man->CreateNtupleDColumn("Recoiled/keV");
+  man->CreateNtupleDColumn("Pre Kinetic/MeV");
+  man->CreateNtupleDColumn("Recoiled/MeV");
   man->CreateNtupleSColumn("Volume");
   man->CreateNtupleSColumn("Process");
   man->FinishNtuple();
@@ -129,7 +129,7 @@ void DMXRunAction::BeginOfRunAction(const G4Run* aRun)
   aMan->OpenFile( "Data_ryan.root" );*/
 
 
-  savehistFile = "/data/runzezhang/result/TN_box/dmx_AmLi_neutron_1E7.root";
+  savehistFile = "/data/runzezhang/result/TN_box/dmx_ar_inelastic_1E6.root";
   G4AnalysisManager* man = G4AnalysisManager::Instance();
   G4int runID = aRun -> GetRunID();
 //  G4String filename1 = "/data/runzezhang/result/TN_box/dmx_Cfneutron_Ncry_1E6_" + std::to_string(runID) + ".root";
