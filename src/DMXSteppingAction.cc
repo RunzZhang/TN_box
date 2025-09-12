@@ -140,7 +140,8 @@ void DMXSteppingAction::UserSteppingAction(const G4Step* fStep)
   //information collected by Ryan, written to dmx.root file defined in RunAction.cc
 
   G4double edep = fStep->GetTotalEnergyDeposit();
-  G4double ek = fStep->GetPreStepPoint()->GetKineticEnergy();
+  G4double pre_ek = fStep->GetPreStepPoint()->GetKineticEnergy();
+  G4double post_ek = fStep->GetPostStepPoint()->GetKineticEnergy();
   G4double posx = fStep->GetPreStepPoint()->GetPosition().x();
   G4double posy = fStep->GetPreStepPoint()->GetPosition().y();
   G4double posz = fStep->GetPreStepPoint()->GetPosition().z();
@@ -193,13 +194,14 @@ void DMXSteppingAction::UserSteppingAction(const G4Step* fStep)
   man->FillNtupleDColumn(8,momx);
   man->FillNtupleDColumn(9,momy);
   man->FillNtupleDColumn(10,momz);
-  man->FillNtupleDColumn(11, ek);
-  man->FillNtupleDColumn(12,edep);
-  man->FillNtupleSColumn(13,volume);
+  man->FillNtupleDColumn(11, pre_ek);
+  man->FillNtupleDColumn(12, post_ek);
+  man->FillNtupleDColumn(13,edep);
+  man->FillNtupleSColumn(14,volume);
    if (fStep->GetPostStepPoint()->GetProcessDefinedStep())
     {const G4VProcess* process = fStep->GetPostStepPoint()->GetProcessDefinedStep();
       G4String processn = process->GetProcessName();
-      man->FillNtupleSColumn(14,processn);}
+      man->FillNtupleSColumn(15,processn);}
   man->AddNtupleRow();
   }
 
